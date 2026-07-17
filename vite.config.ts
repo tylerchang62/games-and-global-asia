@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({command}) => {
   return {
+    // Served from https://<user>.github.io/games-and-global-asia/ on GitHub Pages.
+    base: command === 'build' ? '/games-and-global-asia/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
